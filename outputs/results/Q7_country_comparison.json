@@ -1,0 +1,1683 @@
+{
+  "overall_probe_hav_median_km": 275.31969223465774,
+  "overall_baseline_hav_median_km": 192.7218620277888,
+  "probe_wins": 30,
+  "n_countries": 147,
+  "within_country_correlations": {
+    "Mauritius": {
+      "n": 9,
+      "corr_lat": -0.44531305612752864,
+      "corr_lon": 0.28776162903161046,
+      "probe_mean_km": 227.2145151480992,
+      "baseline_mean_km": 18.286995997008898
+    },
+    "Tanzania": {
+      "n": 9,
+      "corr_lat": 0.06278833173418369,
+      "corr_lon": -0.13967170925721945,
+      "probe_mean_km": 416.7826750304173,
+      "baseline_mean_km": 390.54968735997164
+    },
+    "Mexico": {
+      "n": 12,
+      "corr_lat": 0.6266791161572624,
+      "corr_lon": -0.23392821542586376,
+      "probe_mean_km": 646.8669527272897,
+      "baseline_mean_km": 602.0570801833003
+    },
+    "New Zealand": {
+      "n": 13,
+      "corr_lat": -0.1291671110477075,
+      "corr_lon": -0.20770743393326074,
+      "probe_mean_km": 538.8316482060301,
+      "baseline_mean_km": 442.15105276622387
+    },
+    "Pakistan": {
+      "n": 11,
+      "corr_lat": 0.06946529815341794,
+      "corr_lon": -0.020884622132448495,
+      "probe_mean_km": 358.8742826693619,
+      "baseline_mean_km": 322.4836779359532
+    },
+    "Syria": {
+      "n": 11,
+      "corr_lat": -0.09967609861290018,
+      "corr_lon": 0.47021781703378407,
+      "probe_mean_km": 153.99966150510343,
+      "baseline_mean_km": 142.37323598838793
+    },
+    "Jamaica": {
+      "n": 16,
+      "corr_lat": 0.22097150846831984,
+      "corr_lon": -0.3253495278244605,
+      "probe_mean_km": 354.9620007958757,
+      "baseline_mean_km": 53.53795813904423
+    },
+    "Libya": {
+      "n": 12,
+      "corr_lat": 0.12574656452427008,
+      "corr_lon": 0.040108444170003726,
+      "probe_mean_km": 468.4413516376428,
+      "baseline_mean_km": 477.14833544678555
+    },
+    "Kyrgyzstan": {
+      "n": 6,
+      "corr_lat": -0.004144071312018806,
+      "corr_lon": 0.080307584442589,
+      "probe_mean_km": 212.82299555256918,
+      "baseline_mean_km": 191.83279796382863
+    },
+    "Tunisia": {
+      "n": 21,
+      "corr_lat": 0.22614439175249457,
+      "corr_lon": -0.15684271304911557,
+      "probe_mean_km": 216.49479889882198,
+      "baseline_mean_km": 143.0281841214883
+    },
+    "Slovakia": {
+      "n": 14,
+      "corr_lat": 0.49526095935413006,
+      "corr_lon": 0.4131586489530333,
+      "probe_mean_km": 116.79869102478858,
+      "baseline_mean_km": 107.69133363614976
+    },
+    "Zambia": {
+      "n": 13,
+      "corr_lat": 0.46068141041910904,
+      "corr_lon": -0.06697322938078054,
+      "probe_mean_km": 412.3753784815578,
+      "baseline_mean_km": 400.007812816656
+    },
+    "Nicaragua": {
+      "n": 17,
+      "corr_lat": 0.41625332094692685,
+      "corr_lon": -0.05389483661192904,
+      "probe_mean_km": 321.55542084377464,
+      "baseline_mean_km": 123.44493093199726
+    },
+    "Dominican Republic": {
+      "n": 14,
+      "corr_lat": 0.19393717082753076,
+      "corr_lon": 0.046963699421271064,
+      "probe_mean_km": 156.79952930579466,
+      "baseline_mean_km": 77.96293075287828
+    },
+    "Argentina": {
+      "n": 20,
+      "corr_lat": 0.10428077409658197,
+      "corr_lon": 0.3728459903674651,
+      "probe_mean_km": 554.9056411147826,
+      "baseline_mean_km": 620.8945479299139
+    },
+    "Estonia": {
+      "n": 12,
+      "corr_lat": -0.27003449655446554,
+      "corr_lon": 0.606518803178329,
+      "probe_mean_km": 167.84595000720768,
+      "baseline_mean_km": 89.9651191035427
+    },
+    "Hungary": {
+      "n": 14,
+      "corr_lat": 0.42326066970490217,
+      "corr_lon": 0.2730567677687181,
+      "probe_mean_km": 129.17261175051604,
+      "baseline_mean_km": 109.56886115901459
+    },
+    "Uganda": {
+      "n": 10,
+      "corr_lat": -0.6172572401271925,
+      "corr_lon": 0.19374378479228624,
+      "probe_mean_km": 216.69332493357007,
+      "baseline_mean_km": 171.5529341811228
+    },
+    "Turkey": {
+      "n": 9,
+      "corr_lat": -0.14703424877229035,
+      "corr_lon": 0.42441230831963667,
+      "probe_mean_km": 487.5469174809616,
+      "baseline_mean_km": 522.9541109665058
+    },
+    "Sweden": {
+      "n": 13,
+      "corr_lat": -0.30771042288994765,
+      "corr_lon": 0.34327971480687175,
+      "probe_mean_km": 371.87153124723324,
+      "baseline_mean_km": 331.61163114749985
+    },
+    "Cameroon": {
+      "n": 11,
+      "corr_lat": 0.09966836930820963,
+      "corr_lon": 0.5835977255639716,
+      "probe_mean_km": 306.0835576613599,
+      "baseline_mean_km": 194.55069858043262
+    },
+    "Iran": {
+      "n": 15,
+      "corr_lat": -0.1665919779489219,
+      "corr_lon": 0.14104342877337417,
+      "probe_mean_km": 453.3183766782635,
+      "baseline_mean_km": 485.08248578946433
+    },
+    "Egypt": {
+      "n": 16,
+      "corr_lat": 0.32324283898943285,
+      "corr_lon": 0.24583180080938108,
+      "probe_mean_km": 232.96527312897643,
+      "baseline_mean_km": 236.4978934612017
+    },
+    "United Kingdom": {
+      "n": 12,
+      "corr_lat": -0.13338244734399052,
+      "corr_lon": -0.0038599382851341986,
+      "probe_mean_km": 169.5905883258126,
+      "baseline_mean_km": 124.0782802885559
+    },
+    "Lithuania": {
+      "n": 9,
+      "corr_lat": -0.6868070607288307,
+      "corr_lon": -0.18574224336689968,
+      "probe_mean_km": 207.61599379246147,
+      "baseline_mean_km": 120.91061277788916
+    },
+    "Norway": {
+      "n": 14,
+      "corr_lat": -0.3261927040151883,
+      "corr_lon": 0.057363079847794374,
+      "probe_mean_km": 442.7872299919094,
+      "baseline_mean_km": 399.1815880752044
+    },
+    "Chile": {
+      "n": 9,
+      "corr_lat": -0.26059881760223846,
+      "corr_lon": -0.3481743192333576,
+      "probe_mean_km": 740.0810327970866,
+      "baseline_mean_km": 608.1715720327757
+    },
+    "Iraq": {
+      "n": 12,
+      "corr_lat": 0.6854175699886438,
+      "corr_lon": 0.23647358703632496,
+      "probe_mean_km": 190.13916856471124,
+      "baseline_mean_km": 214.30080745956488
+    },
+    "Romania": {
+      "n": 11,
+      "corr_lat": 0.12463921274054565,
+      "corr_lon": 0.12260008066430361,
+      "probe_mean_km": 172.12274617225634,
+      "baseline_mean_km": 162.54742715565686
+    },
+    "Honduras": {
+      "n": 8,
+      "corr_lat": -0.2914692552994037,
+      "corr_lon": 0.11074112612487763,
+      "probe_mean_km": 239.42042721852943,
+      "baseline_mean_km": 160.68356620818003
+    },
+    "United States": {
+      "n": 68,
+      "corr_lat": -0.07417412366451338,
+      "corr_lon": 0.18095556745370392,
+      "probe_mean_km": 1478.098071268605,
+      "baseline_mean_km": 1496.3767668391818
+    },
+    "Senegal": {
+      "n": 7,
+      "corr_lat": 0.48572254717691615,
+      "corr_lon": -0.03142982726647275,
+      "probe_mean_km": 189.51231195639346,
+      "baseline_mean_km": 131.92625937595966
+    },
+    "Croatia": {
+      "n": 16,
+      "corr_lat": 0.3341196269908169,
+      "corr_lon": 0.16948410392931834,
+      "probe_mean_km": 240.52042150844113,
+      "baseline_mean_km": 158.9968842990566
+    },
+    "Azerbaijan": {
+      "n": 9,
+      "corr_lat": 0.42995302301765237,
+      "corr_lon": -0.37573079247456764,
+      "probe_mean_km": 190.42541561066852,
+      "baseline_mean_km": 137.48018159777791
+    },
+    "Paraguay": {
+      "n": 10,
+      "corr_lat": -0.24232325511471506,
+      "corr_lon": -0.42191805999552146,
+      "probe_mean_km": 398.99950733842525,
+      "baseline_mean_km": 231.72660609264935
+    },
+    "Colombia": {
+      "n": 14,
+      "corr_lat": 0.06402929112415319,
+      "corr_lon": 0.26166837574289226,
+      "probe_mean_km": 412.0662000394658,
+      "baseline_mean_km": 295.1179288500057
+    },
+    "Vietnam": {
+      "n": 7,
+      "corr_lat": -0.13335140412939625,
+      "corr_lon": -0.03622358565613211,
+      "probe_mean_km": 651.608347276962,
+      "baseline_mean_km": 619.9612837709302
+    },
+    "Peru": {
+      "n": 10,
+      "corr_lat": -0.20499945574636408,
+      "corr_lon": 0.30048503194494797,
+      "probe_mean_km": 574.1272296905589,
+      "baseline_mean_km": 530.7628563783643
+    },
+    "Saudi Arabia": {
+      "n": 9,
+      "corr_lat": -0.5538164612861542,
+      "corr_lon": -0.15811183216734181,
+      "probe_mean_km": 717.1691452887922,
+      "baseline_mean_km": 662.4425636568537
+    },
+    "Bangladesh": {
+      "n": 13,
+      "corr_lat": 0.26392247401258684,
+      "corr_lon": -0.5817533494085427,
+      "probe_mean_km": 267.32156208989693,
+      "baseline_mean_km": 136.17157207889542
+    },
+    "Indonesia": {
+      "n": 11,
+      "corr_lat": -0.5254534309471872,
+      "corr_lon": 0.17211877970403544,
+      "probe_mean_km": 1220.4889421392263,
+      "baseline_mean_km": 1060.1002515307375
+    },
+    "Israel": {
+      "n": 10,
+      "corr_lat": 0.2486255937046218,
+      "corr_lon": -0.5050284382363867,
+      "probe_mean_km": 183.52647519075146,
+      "baseline_mean_km": 65.02576318188225
+    },
+    "Bosnia and Herzegovina": {
+      "n": 8,
+      "corr_lat": -0.017568577400144864,
+      "corr_lon": 0.4539584466378159,
+      "probe_mean_km": 86.92700618753932,
+      "baseline_mean_km": 89.48588269230365
+    },
+    "Ukraine": {
+      "n": 8,
+      "corr_lat": -0.3323610926111296,
+      "corr_lon": -0.5114898374000831,
+      "probe_mean_km": 460.92715600516055,
+      "baseline_mean_km": 429.03002427152546
+    },
+    "North Macedonia": {
+      "n": 6,
+      "corr_lat": -0.31367421838805964,
+      "corr_lon": 0.11799080536006162,
+      "probe_mean_km": 149.48655850108744,
+      "baseline_mean_km": 95.00341982523621
+    },
+    "Zimbabwe": {
+      "n": 10,
+      "corr_lat": 0.3406144647182963,
+      "corr_lon": -0.1914473920977143,
+      "probe_mean_km": 287.69432875855534,
+      "baseline_mean_km": 189.2298904081129
+    },
+    "Costa Rica": {
+      "n": 12,
+      "corr_lat": -0.4018531352552778,
+      "corr_lon": 0.3656616868605416,
+      "probe_mean_km": 303.85147147959356,
+      "baseline_mean_km": 43.324637032672484
+    },
+    "Greece": {
+      "n": 12,
+      "corr_lat": 0.15395971455431473,
+      "corr_lon": 0.032028416541786967,
+      "probe_mean_km": 206.2475961838039,
+      "baseline_mean_km": 163.63667499137475
+    },
+    "Myanmar": {
+      "n": 11,
+      "corr_lat": -0.43634292420849136,
+      "corr_lon": 0.1361049202243758,
+      "probe_mean_km": 314.3259088984892,
+      "baseline_mean_km": 227.93135181508308
+    },
+    "Chad": {
+      "n": 11,
+      "corr_lat": 0.30333369885601535,
+      "corr_lon": -0.46660715627916693,
+      "probe_mean_km": 336.1394505159374,
+      "baseline_mean_km": 314.8843658257572
+    },
+    "Ireland": {
+      "n": 11,
+      "corr_lat": 0.19327799505432078,
+      "corr_lon": -0.19410165740132193,
+      "probe_mean_km": 172.58797721781673,
+      "baseline_mean_km": 97.8876981383445
+    },
+    "Moldova": {
+      "n": 12,
+      "corr_lat": 0.18960823984873995,
+      "corr_lon": -0.33208845189110703,
+      "probe_mean_km": 120.82799149757106,
+      "baseline_mean_km": 77.95959956659847
+    },
+    "Central African Republic": {
+      "n": 12,
+      "corr_lat": -0.02408538856354457,
+      "corr_lon": -0.06596671995303964,
+      "probe_mean_km": 330.5443246599062,
+      "baseline_mean_km": 333.3268355474649
+    },
+    "Fiji": {
+      "n": 4,
+      "corr_lat": 0.3611499740070492,
+      "corr_lon": 0.6252260207516294,
+      "probe_mean_km": 3304.343756925331,
+      "baseline_mean_km": 3323.041401178515
+    },
+    "Japan": {
+      "n": 9,
+      "corr_lat": 0.2103000420867378,
+      "corr_lon": 0.318673618757878,
+      "probe_mean_km": 462.35610681055914,
+      "baseline_mean_km": 432.2757304755851
+    },
+    "Laos": {
+      "n": 6,
+      "corr_lat": 0.27636983906840135,
+      "corr_lon": -0.6024751453823142,
+      "probe_mean_km": 506.17094664467504,
+      "baseline_mean_km": 334.06436009363387
+    },
+    "Australia": {
+      "n": 17,
+      "corr_lat": -0.038403320106000526,
+      "corr_lon": -0.036626906932745076,
+      "probe_mean_km": 1087.2221288664753,
+      "baseline_mean_km": 1028.7728387204306
+    },
+    "Benin": {
+      "n": 5,
+      "corr_lat": -0.4890700497182778,
+      "corr_lon": 0.1477269335825883,
+      "probe_mean_km": 392.0453680097961,
+      "baseline_mean_km": 281.6632739102342
+    },
+    "Haiti": {
+      "n": 10,
+      "corr_lat": 0.4214080694252209,
+      "corr_lon": -0.2978476062229226,
+      "probe_mean_km": 254.34392755009898,
+      "baseline_mean_km": 105.93957436620929
+    },
+    "Albania": {
+      "n": 10,
+      "corr_lat": 0.05008878512552725,
+      "corr_lon": 0.29276010076782144,
+      "probe_mean_km": 168.00319531198153,
+      "baseline_mean_km": 67.5284206527131
+    },
+    "Sierra Leone": {
+      "n": 11,
+      "corr_lat": 0.35648449761074863,
+      "corr_lon": -0.10969226867063886,
+      "probe_mean_km": 129.4475642560633,
+      "baseline_mean_km": 88.87750984887214
+    },
+    "Czechia": {
+      "n": 15,
+      "corr_lat": -0.20277952282030656,
+      "corr_lon": -0.4513516712056589,
+      "probe_mean_km": 194.41299522133602,
+      "baseline_mean_km": 148.4176789997446
+    },
+    "Netherlands": {
+      "n": 11,
+      "corr_lat": 0.5781115279515626,
+      "corr_lon": 0.3458798120001879,
+      "probe_mean_km": 157.9025397441431,
+      "baseline_mean_km": 84.96000317903577
+    },
+    "Germany": {
+      "n": 15,
+      "corr_lat": -0.22538891920933185,
+      "corr_lon": 0.03318713960290657,
+      "probe_mean_km": 200.67115701219151,
+      "baseline_mean_km": 178.6142083152885
+    },
+    "Madagascar": {
+      "n": 7,
+      "corr_lat": 0.37484987308400775,
+      "corr_lon": -0.507876253468254,
+      "probe_mean_km": 411.460629682208,
+      "baseline_mean_km": 331.20572777399514
+    },
+    "Democratic Republic of the Congo": {
+      "n": 13,
+      "corr_lat": 0.044690090652273314,
+      "corr_lon": -0.2667695569521965,
+      "probe_mean_km": 724.7029199780595,
+      "baseline_mean_km": 704.0854205231752
+    },
+    "Austria": {
+      "n": 9,
+      "corr_lat": 0.049711221462498685,
+      "corr_lon": 0.6930760832583726,
+      "probe_mean_km": 99.54857960984094,
+      "baseline_mean_km": 122.19242300843558
+    },
+    "Mali": {
+      "n": 12,
+      "corr_lat": 0.4082936276568674,
+      "corr_lon": -0.2699635883311908,
+      "probe_mean_km": 454.04100378363904,
+      "baseline_mean_km": 400.45234472408083
+    },
+    "Spain": {
+      "n": 12,
+      "corr_lat": -0.38220911044545747,
+      "corr_lon": -0.303788713714322,
+      "probe_mean_km": 518.1876988232713,
+      "baseline_mean_km": 460.0004295777366
+    },
+    "Algeria": {
+      "n": 9,
+      "corr_lat": -0.06458743204140056,
+      "corr_lon": -0.01642351867604822,
+      "probe_mean_km": 355.35901496161233,
+      "baseline_mean_km": 282.4874268725609
+    },
+    "Canada": {
+      "n": 11,
+      "corr_lat": -0.23651835649139175,
+      "corr_lon": 0.293736863102036,
+      "probe_mean_km": 1974.846030843623,
+      "baseline_mean_km": 2024.3078131654818
+    },
+    "France": {
+      "n": 7,
+      "corr_lat": -0.12503442597843747,
+      "corr_lon": -0.7975724014772352,
+      "probe_mean_km": 706.1439960611029,
+      "baseline_mean_km": 646.9642698382387
+    },
+    "Slovenia": {
+      "n": 10,
+      "corr_lat": -0.021780875404668536,
+      "corr_lon": -0.07281183028465224,
+      "probe_mean_km": 203.1162158854916,
+      "baseline_mean_km": 44.96189958540226
+    },
+    "Ecuador": {
+      "n": 9,
+      "corr_lat": -0.10418931663165401,
+      "corr_lon": 0.005264291633221732,
+      "probe_mean_km": 288.80272501578685,
+      "baseline_mean_km": 131.5834921200948
+    },
+    "Poland": {
+      "n": 15,
+      "corr_lat": 0.07738353894140591,
+      "corr_lon": 0.1919154724138006,
+      "probe_mean_km": 223.96219329436934,
+      "baseline_mean_km": 201.87378477953274
+    },
+    "Kuwait": {
+      "n": 5,
+      "corr_lat": 0.10173514759518672,
+      "corr_lon": -0.7556976704804443,
+      "probe_mean_km": 190.8567127286342,
+      "baseline_mean_km": 21.830730585458006
+    },
+    "Denmark": {
+      "n": 9,
+      "corr_lat": -0.33541877235650025,
+      "corr_lon": 0.14739070832380288,
+      "probe_mean_km": 178.8812212684494,
+      "baseline_mean_km": 105.86398299096834
+    },
+    "Russia": {
+      "n": 9,
+      "corr_lat": -0.20791292917542392,
+      "corr_lon": 0.15694152462720112,
+      "probe_mean_km": 1563.6078817398593,
+      "baseline_mean_km": 1613.258532910924
+    },
+    "Turkmenistan": {
+      "n": 9,
+      "corr_lat": 0.047434425589105184,
+      "corr_lon": -0.6292550914470881,
+      "probe_mean_km": 442.3326919389901,
+      "baseline_mean_km": 395.12792546602304
+    },
+    "Belarus": {
+      "n": 14,
+      "corr_lat": -0.2658269128810949,
+      "corr_lon": -0.5332971748147401,
+      "probe_mean_km": 253.42982752663667,
+      "baseline_mean_km": 154.07173682605335
+    },
+    "Italy": {
+      "n": 9,
+      "corr_lat": -0.3881266850487603,
+      "corr_lon": 0.10159749706608494,
+      "probe_mean_km": 367.38887360650455,
+      "baseline_mean_km": 323.0515795232857
+    },
+    "South Korea": {
+      "n": 9,
+      "corr_lat": -0.18810289438723427,
+      "corr_lon": -0.2569004978727579,
+      "probe_mean_km": 176.16152244427238,
+      "baseline_mean_km": 124.18452195128299
+    },
+    "Guatemala": {
+      "n": 10,
+      "corr_lat": 0.11241606105199081,
+      "corr_lon": 0.6419071377274354,
+      "probe_mean_km": 178.1773596986333,
+      "baseline_mean_km": 67.0205720554263
+    },
+    "Malawi": {
+      "n": 9,
+      "corr_lat": -0.24905014048491955,
+      "corr_lon": 0.08475600071371776,
+      "probe_mean_km": 271.72438206662514,
+      "baseline_mean_km": 113.17575839218901
+    },
+    "Uruguay": {
+      "n": 11,
+      "corr_lat": 0.1820046508012536,
+      "corr_lon": -0.5866748047917164,
+      "probe_mean_km": 297.6244372269146,
+      "baseline_mean_km": 159.62399975370823
+    },
+    "Luxembourg": {
+      "n": 9,
+      "corr_lat": -0.4658750062715035,
+      "corr_lon": -0.16751590491199334,
+      "probe_mean_km": 163.3608932018232,
+      "baseline_mean_km": 18.07099079984536
+    },
+    "Ethiopia": {
+      "n": 13,
+      "corr_lat": 0.03801840159444546,
+      "corr_lon": 0.4563530438772754,
+      "probe_mean_km": 272.03943416677924,
+      "baseline_mean_km": 270.30712123157963
+    },
+    "Thailand": {
+      "n": 10,
+      "corr_lat": -0.05670050080403339,
+      "corr_lon": 0.25736086485002374,
+      "probe_mean_km": 481.54217875138136,
+      "baseline_mean_km": 401.5504595078872
+    },
+    "Venezuela": {
+      "n": 10,
+      "corr_lat": 0.4658042707903736,
+      "corr_lon": -0.4096063922007597,
+      "probe_mean_km": 306.38640009833614,
+      "baseline_mean_km": 227.9641625585014
+    },
+    "Kazakhstan": {
+      "n": 12,
+      "corr_lat": 0.0774325256664335,
+      "corr_lon": -0.2031579957928315,
+      "probe_mean_km": 924.604555863329,
+      "baseline_mean_km": 920.2621713827629
+    },
+    "Puerto Rico": {
+      "n": 17,
+      "corr_lat": 0.0725649555463143,
+      "corr_lon": 0.0035289374485339368,
+      "probe_mean_km": 145.14521160415978,
+      "baseline_mean_km": 45.344271466852774
+    },
+    "Serbia": {
+      "n": 10,
+      "corr_lat": -0.17806748694081678,
+      "corr_lon": 0.09788239350169772,
+      "probe_mean_km": 195.3868561661276,
+      "baseline_mean_km": 112.93519969730588
+    },
+    "Cuba": {
+      "n": 12,
+      "corr_lat": -0.038775323660285396,
+      "corr_lon": 0.166659413389666,
+      "probe_mean_km": 363.22138443395784,
+      "baseline_mean_km": 214.0311403932761
+    },
+    "The Bahamas": {
+      "n": 5,
+      "corr_lat": 0.559248904481752,
+      "corr_lon": 0.17411677930524513,
+      "probe_mean_km": 353.4181123606653,
+      "baseline_mean_km": 292.8019781229692
+    },
+    "Bolivia": {
+      "n": 12,
+      "corr_lat": 0.025785666776883733,
+      "corr_lon": -0.30428226563416716,
+      "probe_mean_km": 347.6454191644987,
+      "baseline_mean_km": 239.79967301441977
+    },
+    "Papua New Guinea": {
+      "n": 8,
+      "corr_lat": 0.056411519753444876,
+      "corr_lon": 0.056706190983451664,
+      "probe_mean_km": 609.8216547636177,
+      "baseline_mean_km": 472.85090585470886
+    },
+    "Switzerland": {
+      "n": 7,
+      "corr_lat": 0.5189237328916808,
+      "corr_lon": 0.44573834812444707,
+      "probe_mean_km": 109.49460003048897,
+      "baseline_mean_km": 97.05480235302096
+    },
+    "Latvia": {
+      "n": 8,
+      "corr_lat": -0.4881907833809874,
+      "corr_lon": -0.18457237343660768,
+      "probe_mean_km": 203.25689743860994,
+      "baseline_mean_km": 116.41101818107431
+    },
+    "Mongolia": {
+      "n": 9,
+      "corr_lat": -0.04383333523775451,
+      "corr_lon": 0.71677725948082,
+      "probe_mean_km": 447.6810965425194,
+      "baseline_mean_km": 477.66518245645784
+    },
+    "Burundi": {
+      "n": 7,
+      "corr_lat": -0.30405816637138927,
+      "corr_lon": -0.4520848534340779,
+      "probe_mean_km": 131.6897084713377,
+      "baseline_mean_km": 55.69322289166261
+    },
+    "C\u00f4te d\u2019Ivoire": {
+      "n": 8,
+      "corr_lat": 0.6643828731995257,
+      "corr_lon": 0.009646367611613266,
+      "probe_mean_km": 230.3363327024098,
+      "baseline_mean_km": 224.9727563747608
+    },
+    "Bulgaria": {
+      "n": 7,
+      "corr_lat": 0.3721381453000003,
+      "corr_lon": 0.06689951674483911,
+      "probe_mean_km": 168.37430219996062,
+      "baseline_mean_km": 144.03163088206654
+    },
+    "India": {
+      "n": 17,
+      "corr_lat": 0.2619181147314214,
+      "corr_lon": -0.13538107176080363,
+      "probe_mean_km": 747.770050773938,
+      "baseline_mean_km": 758.5225799090483
+    },
+    "Georgia": {
+      "n": 9,
+      "corr_lat": 0.4334424582503916,
+      "corr_lon": 0.13800089229927,
+      "probe_mean_km": 179.77570367347036,
+      "baseline_mean_km": 140.43415935185504
+    },
+    "Portugal": {
+      "n": 6,
+      "corr_lat": 0.209262983274984,
+      "corr_lon": -0.079403436179686,
+      "probe_mean_km": 202.54256100016082,
+      "baseline_mean_km": 138.5013055083522
+    },
+    "Yemen": {
+      "n": 6,
+      "corr_lat": -0.7266056492604388,
+      "corr_lon": -0.004990052780392313,
+      "probe_mean_km": 401.4560541173859,
+      "baseline_mean_km": 305.67777317062166
+    },
+    "Malaysia": {
+      "n": 5,
+      "corr_lat": -0.6028089499726669,
+      "corr_lon": 0.59832032398158,
+      "probe_mean_km": 589.1698572688056,
+      "baseline_mean_km": 674.7342999923652
+    },
+    "Morocco": {
+      "n": 18,
+      "corr_lat": 0.17410063265619022,
+      "corr_lon": -0.12443128194472515,
+      "probe_mean_km": 286.2769747254295,
+      "baseline_mean_km": 233.39899853434042
+    },
+    "Sudan": {
+      "n": 12,
+      "corr_lat": -0.33296859254742567,
+      "corr_lon": -0.2869727812720385,
+      "probe_mean_km": 480.71958815877747,
+      "baseline_mean_km": 388.30899567036886
+    },
+    "Nepal": {
+      "n": 7,
+      "corr_lat": -0.46558552989669233,
+      "corr_lon": 0.2547092724121742,
+      "probe_mean_km": 342.3825591033637,
+      "baseline_mean_km": 257.70772075237164
+    },
+    "El Salvador": {
+      "n": 11,
+      "corr_lat": 0.5095779575301841,
+      "corr_lon": -0.47564380045348864,
+      "probe_mean_km": 266.81024369154824,
+      "baseline_mean_km": 74.14487847760869
+    },
+    "Philippines": {
+      "n": 13,
+      "corr_lat": -0.008667055400865964,
+      "corr_lon": -0.02563455477950109,
+      "probe_mean_km": 635.1495614257595,
+      "baseline_mean_km": 400.5293670763344
+    },
+    "Mozambique": {
+      "n": 7,
+      "corr_lat": -0.11154388490062409,
+      "corr_lon": -0.09817877638879542,
+      "probe_mean_km": 561.0606735325817,
+      "baseline_mean_km": 513.1269028256163
+    },
+    "Jordan": {
+      "n": 11,
+      "corr_lat": 0.014331456082177662,
+      "corr_lon": -0.28348181821682517,
+      "probe_mean_km": 173.18101230268132,
+      "baseline_mean_km": 84.72540340906738
+    },
+    "Uzbekistan": {
+      "n": 13,
+      "corr_lat": -0.1301576954454913,
+      "corr_lon": -0.30107067015726563,
+      "probe_mean_km": 297.4234179134698,
+      "baseline_mean_km": 278.5874394987225
+    },
+    "Namibia": {
+      "n": 6,
+      "corr_lat": 0.015267228374847841,
+      "corr_lon": 0.2603337187603029,
+      "probe_mean_km": 499.73990384586824,
+      "baseline_mean_km": 458.0811376860842
+    },
+    "Sri Lanka": {
+      "n": 9,
+      "corr_lat": -0.21676460452471855,
+      "corr_lon": 0.24912403016854992,
+      "probe_mean_km": 120.70579756739332,
+      "baseline_mean_km": 112.65570916759476
+    },
+    "Oman": {
+      "n": 8,
+      "corr_lat": 0.11450349254036953,
+      "corr_lon": 0.26673931315461163,
+      "probe_mean_km": 287.4783961670064,
+      "baseline_mean_km": 255.55964289688507
+    },
+    "Panama": {
+      "n": 12,
+      "corr_lat": 0.210458573455826,
+      "corr_lon": -0.00383557412102523,
+      "probe_mean_km": 282.65357049743756,
+      "baseline_mean_km": 190.3241300980645
+    },
+    "Finland": {
+      "n": 12,
+      "corr_lat": -0.33619176829559344,
+      "corr_lon": 0.2950044707979673,
+      "probe_mean_km": 313.6703006609482,
+      "baseline_mean_km": 254.4887946939166
+    },
+    "Iceland": {
+      "n": 6,
+      "corr_lat": 0.5751256418783599,
+      "corr_lon": -0.4844510026242455,
+      "probe_mean_km": 188.71283129813932,
+      "baseline_mean_km": 133.5405749923028
+    },
+    "Botswana": {
+      "n": 7,
+      "corr_lat": 0.03373041377690275,
+      "corr_lon": 0.4525833825643041,
+      "probe_mean_km": 249.57839503166977,
+      "baseline_mean_km": 220.9700014397337
+    },
+    "Armenia": {
+      "n": 8,
+      "corr_lat": 0.06534955669802804,
+      "corr_lon": 0.38057551110579585,
+      "probe_mean_km": 185.8507627680039,
+      "baseline_mean_km": 52.605769275037545
+    },
+    "South Africa": {
+      "n": 14,
+      "corr_lat": -8.092197380237772e-05,
+      "corr_lon": -0.05907904052687897,
+      "probe_mean_km": 542.360367063235,
+      "baseline_mean_km": 505.7606001231698
+    },
+    "Montenegro": {
+      "n": 4,
+      "corr_lat": 0.28565353531565657,
+      "corr_lon": -0.9032117326260948,
+      "probe_mean_km": 112.82384433089828,
+      "baseline_mean_km": 40.48662215655031
+    },
+    "The Gambia": {
+      "n": 5,
+      "corr_lat": 0.5528303872506966,
+      "corr_lon": -0.29320709952688573,
+      "probe_mean_km": 176.95213545479288,
+      "baseline_mean_km": 82.55189616159592
+    },
+    "Kenya": {
+      "n": 14,
+      "corr_lat": -0.06068557056810797,
+      "corr_lon": -0.35444340979251826,
+      "probe_mean_km": 274.0962878442385,
+      "baseline_mean_km": 174.4878321725196
+    },
+    "North Korea": {
+      "n": 4,
+      "corr_lat": 0.09992348647852421,
+      "corr_lon": 0.8492463258658826,
+      "probe_mean_km": 239.30383184046133,
+      "baseline_mean_km": 238.13754278024896
+    },
+    "Guinea": {
+      "n": 5,
+      "corr_lat": 0.47643535381262136,
+      "corr_lon": 0.12324415449609155,
+      "probe_mean_km": 249.94020315356428,
+      "baseline_mean_km": 249.39370777544022
+    },
+    "Rwanda": {
+      "n": 4,
+      "corr_lat": 0.5451164658491556,
+      "corr_lon": 0.9902890035585153,
+      "probe_mean_km": 222.31286491021206,
+      "baseline_mean_km": 64.60545559169539
+    },
+    "Brazil": {
+      "n": 7,
+      "corr_lat": -0.09233828766799702,
+      "corr_lon": -0.6564401533754504,
+      "probe_mean_km": 1373.7878423227996,
+      "baseline_mean_km": 1389.0483984410207
+    },
+    "Ghana": {
+      "n": 4,
+      "corr_lat": -0.1957962825000914,
+      "corr_lon": -0.16164615801132726,
+      "probe_mean_km": 258.81427105395005,
+      "baseline_mean_km": 144.4852414157364
+    },
+    "Nigeria": {
+      "n": 4,
+      "corr_lat": -0.755569515077003,
+      "corr_lon": 0.6705427961083092,
+      "probe_mean_km": 309.48870744425204,
+      "baseline_mean_km": 264.0476382423675
+    },
+    "China": {
+      "n": 5,
+      "corr_lat": -0.3406778855014716,
+      "corr_lon": -0.05357120501681926,
+      "probe_mean_km": 1600.95760104205,
+      "baseline_mean_km": 1191.2827127286741
+    }
+  },
+  "per_country": {
+    "Fiji": {
+      "probe_med_km": 3122.8110288390053,
+      "baseline_med_km": 3343.157765522243,
+      "n_valid": 4
+    },
+    "Russia": {
+      "probe_med_km": 1053.724912180915,
+      "baseline_med_km": 1226.207990838952,
+      "n_valid": 9
+    },
+    "Canada": {
+      "probe_med_km": 1977.7214303201044,
+      "baseline_med_km": 2144.511830572822,
+      "n_valid": 11
+    },
+    "Australia": {
+      "probe_med_km": 845.3150560883787,
+      "baseline_med_km": 1007.4057777363345,
+      "n_valid": 17
+    },
+    "Turkey": {
+      "probe_med_km": 445.8819697422522,
+      "baseline_med_km": 584.2178020152089,
+      "n_valid": 9
+    },
+    "Kazakhstan": {
+      "probe_med_km": 780.2093682269178,
+      "baseline_med_km": 860.6940713295099,
+      "n_valid": 12
+    },
+    "Malaysia": {
+      "probe_med_km": 489.7931198604942,
+      "baseline_med_km": 557.1952626392122,
+      "n_valid": 5
+    },
+    "Austria": {
+      "probe_med_km": 74.49758771416059,
+      "baseline_med_km": 125.99751948633886,
+      "n_valid": 9
+    },
+    "Zambia": {
+      "probe_med_km": 384.07308952693006,
+      "baseline_med_km": 429.1879913525388,
+      "n_valid": 13
+    },
+    "Madagascar": {
+      "probe_med_km": 330.18952452936196,
+      "baseline_med_km": 367.43537962323103,
+      "n_valid": 7
+    },
+    "Indonesia": {
+      "probe_med_km": 941.5733684405437,
+      "baseline_med_km": 977.4086593782869,
+      "n_valid": 11
+    },
+    "Antarctica": {
+      "probe_med_km": 2603.934494599981,
+      "baseline_med_km": 2639.638917136811,
+      "n_valid": 2
+    },
+    "Guinea": {
+      "probe_med_km": 155.32061903877013,
+      "baseline_med_km": 183.24038864332186,
+      "n_valid": 5
+    },
+    "Vietnam": {
+      "probe_med_km": 664.3704216601485,
+      "baseline_med_km": 690.2626439889083,
+      "n_valid": 7
+    },
+    "Chad": {
+      "probe_med_km": 271.7278194775952,
+      "baseline_med_km": 293.66255235182774,
+      "n_valid": 11
+    },
+    "United States": {
+      "probe_med_km": 1139.6895866019493,
+      "baseline_med_km": 1160.2102490796879,
+      "n_valid": 68
+    },
+    "Peru": {
+      "probe_med_km": 461.69559680909765,
+      "baseline_med_km": 481.1760523053424,
+      "n_valid": 10
+    },
+    "Bosnia and Herzegovina": {
+      "probe_med_km": 78.84710007474396,
+      "baseline_med_km": 96.19045056066375,
+      "n_valid": 8
+    },
+    "Argentina": {
+      "probe_med_km": 463.47795766707054,
+      "baseline_med_km": 478.23250155163964,
+      "n_valid": 20
+    },
+    "Namibia": {
+      "probe_med_km": 497.6470116727386,
+      "baseline_med_km": 509.96183739831946,
+      "n_valid": 6
+    },
+    "Poland": {
+      "probe_med_km": 176.20702704942644,
+      "baseline_med_km": 186.91092173684928,
+      "n_valid": 15
+    },
+    "Ecuador": {
+      "probe_med_km": 157.2065434796185,
+      "baseline_med_km": 167.88874923459642,
+      "n_valid": 9
+    },
+    "Botswana": {
+      "probe_med_km": 210.30858798633602,
+      "baseline_med_km": 219.4727523787856,
+      "n_valid": 7
+    },
+    "Iraq": {
+      "probe_med_km": 181.4073083948598,
+      "baseline_med_km": 189.02002431805138,
+      "n_valid": 12
+    },
+    "Ethiopia": {
+      "probe_med_km": 243.46691945480646,
+      "baseline_med_km": 251.07038777512923,
+      "n_valid": 13
+    },
+    "Uzbekistan": {
+      "probe_med_km": 202.4815728028806,
+      "baseline_med_km": 209.08111946020082,
+      "n_valid": 13
+    },
+    "Egypt": {
+      "probe_med_km": 234.99173481747422,
+      "baseline_med_km": 240.33424147964956,
+      "n_valid": 16
+    },
+    "India": {
+      "probe_med_km": 758.1570941733421,
+      "baseline_med_km": 762.1629637148375,
+      "n_valid": 17
+    },
+    "Romania": {
+      "probe_med_km": 167.11217453601193,
+      "baseline_med_km": 170.5588777255423,
+      "n_valid": 11
+    },
+    "Iran": {
+      "probe_med_km": 388.7104653631697,
+      "baseline_med_km": 390.028542743121,
+      "n_valid": 15
+    },
+    "Liberia": {
+      "probe_med_km": 147.00397217965198,
+      "baseline_med_km": 146.82227550716405,
+      "n_valid": 3
+    },
+    "Slovakia": {
+      "probe_med_km": 107.50923158373405,
+      "baseline_med_km": 106.48178618329689,
+      "n_valid": 14
+    },
+    "Switzerland": {
+      "probe_med_km": 109.78823435679799,
+      "baseline_med_km": 99.91638125357493,
+      "n_valid": 7
+    },
+    "Finland": {
+      "probe_med_km": 217.49213192298143,
+      "baseline_med_km": 206.88738227226162,
+      "n_valid": 12
+    },
+    "Mali": {
+      "probe_med_km": 364.72454535741497,
+      "baseline_med_km": 353.84446417841207,
+      "n_valid": 12
+    },
+    "South Africa": {
+      "probe_med_km": 463.6948715780437,
+      "baseline_med_km": 447.24832134301914,
+      "n_valid": 14
+    },
+    "Azerbaijan": {
+      "probe_med_km": 146.54185361054846,
+      "baseline_med_km": 129.958888258694,
+      "n_valid": 9
+    },
+    "Kyrgyzstan": {
+      "probe_med_km": 201.92982656697853,
+      "baseline_med_km": 181.7695248591367,
+      "n_valid": 6
+    },
+    "Brazil": {
+      "probe_med_km": 1399.8378878375277,
+      "baseline_med_km": 1379.5720665001281,
+      "n_valid": 7
+    },
+    "Saudi Arabia": {
+      "probe_med_km": 643.2201707276547,
+      "baseline_med_km": 621.6671452439206,
+      "n_valid": 9
+    },
+    "El Salvador": {
+      "probe_med_km": 95.54530812622465,
+      "baseline_med_km": 73.82183373674079,
+      "n_valid": 11
+    },
+    "Belarus": {
+      "probe_med_km": 195.68815256982413,
+      "baseline_med_km": 173.57022664654153,
+      "n_valid": 14
+    },
+    "Guyana": {
+      "probe_med_km": 190.28976716742903,
+      "baseline_med_km": 165.88791291790565,
+      "n_valid": 3
+    },
+    "Sierra Leone": {
+      "probe_med_km": 105.91195901036656,
+      "baseline_med_km": 79.76295641093179,
+      "n_valid": 11
+    },
+    "Oman": {
+      "probe_med_km": 246.66101581802735,
+      "baseline_med_km": 218.73227904848994,
+      "n_valid": 8
+    },
+    "Libya": {
+      "probe_med_km": 470.6347798008048,
+      "baseline_med_km": 442.3143732751098,
+      "n_valid": 12
+    },
+    "Nepal": {
+      "probe_med_km": 314.7611023676973,
+      "baseline_med_km": 283.8277303530201,
+      "n_valid": 7
+    },
+    "Georgia": {
+      "probe_med_km": 160.43939691226925,
+      "baseline_med_km": 128.77039317905812,
+      "n_valid": 9
+    },
+    "C\u00f4te d\u2019Ivoire": {
+      "probe_med_km": 219.8374667591004,
+      "baseline_med_km": 187.79938732603995,
+      "n_valid": 8
+    },
+    "Suriname": {
+      "probe_med_km": 114.52301143758771,
+      "baseline_med_km": 80.92761841102761,
+      "n_valid": 3
+    },
+    "Italy": {
+      "probe_med_km": 351.16870370050907,
+      "baseline_med_km": 316.7907480261285,
+      "n_valid": 9
+    },
+    "Germany": {
+      "probe_med_km": 196.62629783785465,
+      "baseline_med_km": 161.33013439856788,
+      "n_valid": 15
+    },
+    "North Korea": {
+      "probe_med_km": 254.52798841464215,
+      "baseline_med_km": 219.21937713471948,
+      "n_valid": 4
+    },
+    "Denmark": {
+      "probe_med_km": 146.18639120183335,
+      "baseline_med_km": 110.4337615116193,
+      "n_valid": 9
+    },
+    "Puerto Rico": {
+      "probe_med_km": 80.30644835447296,
+      "baseline_med_km": 42.160492541194714,
+      "n_valid": 17
+    },
+    "Spain": {
+      "probe_med_km": 339.48851802021727,
+      "baseline_med_km": 301.1812795429787,
+      "n_valid": 12
+    },
+    "The Bahamas": {
+      "probe_med_km": 354.87722102414637,
+      "baseline_med_km": 315.38302850430307,
+      "n_valid": 5
+    },
+    "Greece": {
+      "probe_med_km": 193.11762944635905,
+      "baseline_med_km": 153.0020209070881,
+      "n_valid": 12
+    },
+    "South Korea": {
+      "probe_med_km": 157.0443701060958,
+      "baseline_med_km": 116.68573989222276,
+      "n_valid": 9
+    },
+    "Burundi": {
+      "probe_med_km": 95.03163789974064,
+      "baseline_med_km": 53.91927369192798,
+      "n_valid": 7
+    },
+    "Myanmar": {
+      "probe_med_km": 234.554932958094,
+      "baseline_med_km": 192.16456634646653,
+      "n_valid": 11
+    },
+    "Portugal": {
+      "probe_med_km": 184.2575981727747,
+      "baseline_med_km": 140.53088736568452,
+      "n_valid": 6
+    },
+    "Mongolia": {
+      "probe_med_km": 375.3934460783091,
+      "baseline_med_km": 330.4335891810791,
+      "n_valid": 9
+    },
+    "Dominican Republic": {
+      "probe_med_km": 126.27319085929028,
+      "baseline_med_km": 81.26133150940954,
+      "n_valid": 14
+    },
+    "United Kingdom": {
+      "probe_med_km": 145.84632259915145,
+      "baseline_med_km": 100.51426962410262,
+      "n_valid": 12
+    },
+    "Ukraine": {
+      "probe_med_km": 470.45956590703486,
+      "baseline_med_km": 423.69749421913315,
+      "n_valid": 8
+    },
+    "Croatia": {
+      "probe_med_km": 201.33731980003893,
+      "baseline_med_km": 153.5756003110229,
+      "n_valid": 16
+    },
+    "Syria": {
+      "probe_med_km": 201.5933882751083,
+      "baseline_med_km": 152.9367167240945,
+      "n_valid": 11
+    },
+    "Moldova": {
+      "probe_med_km": 140.23902416775206,
+      "baseline_med_km": 90.25450835021519,
+      "n_valid": 12
+    },
+    "Guinea-Bissau": {
+      "probe_med_km": 134.2813539323894,
+      "baseline_med_km": 84.0321479123613,
+      "n_valid": 2
+    },
+    "Honduras": {
+      "probe_med_km": 200.87263101935613,
+      "baseline_med_km": 150.27921104069662,
+      "n_valid": 8
+    },
+    "North Macedonia": {
+      "probe_med_km": 150.33601164765383,
+      "baseline_med_km": 99.06848213288202,
+      "n_valid": 6
+    },
+    "Hungary": {
+      "probe_med_km": 141.13046733728285,
+      "baseline_med_km": 89.45280041977824,
+      "n_valid": 14
+    },
+    "Belgium": {
+      "probe_med_km": 129.52584691204717,
+      "baseline_med_km": 77.82284790073768,
+      "n_valid": 3
+    },
+    "Lithuania": {
+      "probe_med_km": 195.46914103235207,
+      "baseline_med_km": 142.8308508957807,
+      "n_valid": 9
+    },
+    "Morocco": {
+      "probe_med_km": 279.88225400396664,
+      "baseline_med_km": 223.5361509929491,
+      "n_valid": 18
+    },
+    "Czechia": {
+      "probe_med_km": 199.09409720557233,
+      "baseline_med_km": 141.0510911777961,
+      "n_valid": 15
+    },
+    "Senegal": {
+      "probe_med_km": 166.92789753149256,
+      "baseline_med_km": 106.39709077910274,
+      "n_valid": 7
+    },
+    "Netherlands": {
+      "probe_med_km": 138.44831605172547,
+      "baseline_med_km": 77.2160461709963,
+      "n_valid": 11
+    },
+    "Sri Lanka": {
+      "probe_med_km": 138.0569729372752,
+      "baseline_med_km": 76.05907894114334,
+      "n_valid": 9
+    },
+    "Bulgaria": {
+      "probe_med_km": 200.46282333246089,
+      "baseline_med_km": 138.42677089709767,
+      "n_valid": 7
+    },
+    "Nigeria": {
+      "probe_med_km": 261.312532696992,
+      "baseline_med_km": 199.07255292993176,
+      "n_valid": 4
+    },
+    "Venezuela": {
+      "probe_med_km": 222.93663514268505,
+      "baseline_med_km": 160.45311630302984,
+      "n_valid": 10
+    },
+    "Uganda": {
+      "probe_med_km": 213.7153527962729,
+      "baseline_med_km": 149.8528674192407,
+      "n_valid": 10
+    },
+    "Latvia": {
+      "probe_med_km": 185.81086892210345,
+      "baseline_med_km": 118.1955356828887,
+      "n_valid": 8
+    },
+    "Democratic Republic of the Congo": {
+      "probe_med_km": 804.4585563494013,
+      "baseline_med_km": 736.3777117608935,
+      "n_valid": 13
+    },
+    "Zimbabwe": {
+      "probe_med_km": 239.8248376086743,
+      "baseline_med_km": 171.1738179933138,
+      "n_valid": 10
+    },
+    "Norway": {
+      "probe_med_km": 424.9551969233092,
+      "baseline_med_km": 355.9859260865013,
+      "n_valid": 14
+    },
+    "Panama": {
+      "probe_med_km": 278.4545451907977,
+      "baseline_med_km": 208.59661673726876,
+      "n_valid": 12
+    },
+    "Central African Republic": {
+      "probe_med_km": 355.6591837346846,
+      "baseline_med_km": 285.12470714408505,
+      "n_valid": 12
+    },
+    "Pakistan": {
+      "probe_med_km": 366.41477244248756,
+      "baseline_med_km": 295.8258374586116,
+      "n_valid": 11
+    },
+    "Laos": {
+      "probe_med_km": 485.3274113796451,
+      "baseline_med_km": 412.7426440615119,
+      "n_valid": 6
+    },
+    "Tunisia": {
+      "probe_med_km": 197.2899804704538,
+      "baseline_med_km": 122.40221563547759,
+      "n_valid": 21
+    },
+    "Colombia": {
+      "probe_med_km": 350.14424436968716,
+      "baseline_med_km": 271.66544015161656,
+      "n_valid": 14
+    },
+    "New Zealand": {
+      "probe_med_km": 462.2576673062584,
+      "baseline_med_km": 379.03240135302553,
+      "n_valid": 13
+    },
+    "Israel": {
+      "probe_med_km": 152.22892912643363,
+      "baseline_med_km": 67.93395063592064,
+      "n_valid": 10
+    },
+    "Kenya": {
+      "probe_med_km": 234.21409645276373,
+      "baseline_med_km": 147.48965005964874,
+      "n_valid": 14
+    },
+    "Montenegro": {
+      "probe_med_km": 120.38598159512142,
+      "baseline_med_km": 32.77183373286312,
+      "n_valid": 4
+    },
+    "France": {
+      "probe_med_km": 740.3918473669914,
+      "baseline_med_km": 651.2945393241384,
+      "n_valid": 7
+    },
+    "Ireland": {
+      "probe_med_km": 175.62421241303915,
+      "baseline_med_km": 84.97654403541375,
+      "n_valid": 11
+    },
+    "Jordan": {
+      "probe_med_km": 138.34673863219734,
+      "baseline_med_km": 46.234087385564614,
+      "n_valid": 11
+    },
+    "Turkmenistan": {
+      "probe_med_km": 499.24208583891743,
+      "baseline_med_km": 402.78161303949616,
+      "n_valid": 9
+    },
+    "Estonia": {
+      "probe_med_km": 173.68384918245135,
+      "baseline_med_km": 76.98766625171042,
+      "n_valid": 12
+    },
+    "Bolivia": {
+      "probe_med_km": 328.4900719838795,
+      "baseline_med_km": 230.53388564587124,
+      "n_valid": 12
+    },
+    "Japan": {
+      "probe_med_km": 415.7737102141687,
+      "baseline_med_km": 316.8185338458714,
+      "n_valid": 9
+    },
+    "Albania": {
+      "probe_med_km": 165.7826139862652,
+      "baseline_med_km": 66.35161546246022,
+      "n_valid": 10
+    },
+    "Cuba": {
+      "probe_med_km": 288.11333303347305,
+      "baseline_med_km": 183.1268675912275,
+      "n_valid": 12
+    },
+    "Slovenia": {
+      "probe_med_km": 157.97479323871067,
+      "baseline_med_km": 48.701969447481744,
+      "n_valid": 10
+    },
+    "Mozambique": {
+      "probe_med_km": 646.6946591483116,
+      "baseline_med_km": 536.2372638260977,
+      "n_valid": 7
+    },
+    "Algeria": {
+      "probe_med_km": 336.39040089880456,
+      "baseline_med_km": 224.38660160947944,
+      "n_valid": 9
+    },
+    "Iceland": {
+      "probe_med_km": 229.06382707879868,
+      "baseline_med_km": 116.31485329723282,
+      "n_valid": 6
+    },
+    "Sudan": {
+      "probe_med_km": 504.7724746325163,
+      "baseline_med_km": 389.74220365716764,
+      "n_valid": 12
+    },
+    "Bangladesh": {
+      "probe_med_km": 247.8907020160534,
+      "baseline_med_km": 125.9027763604277,
+      "n_valid": 13
+    },
+    "Serbia": {
+      "probe_med_km": 196.0219389555818,
+      "baseline_med_km": 73.9568947137459,
+      "n_valid": 10
+    },
+    "Sweden": {
+      "probe_med_km": 280.7399413128372,
+      "baseline_med_km": 154.20530746957442,
+      "n_valid": 13
+    },
+    "The Gambia": {
+      "probe_med_km": 182.2199099822311,
+      "baseline_med_km": 55.43708302890263,
+      "n_valid": 5
+    },
+    "Ghana": {
+      "probe_med_km": 264.30473270855805,
+      "baseline_med_km": 137.1884697412867,
+      "n_valid": 4
+    },
+    "Paraguay": {
+      "probe_med_km": 335.1777639346364,
+      "baseline_med_km": 205.0266752869914,
+      "n_valid": 10
+    },
+    "Luxembourg": {
+      "probe_med_km": 149.64195426377466,
+      "baseline_med_km": 14.703102877988735,
+      "n_valid": 9
+    },
+    "Liechtenstein": {
+      "probe_med_km": 145.61261736546118,
+      "baseline_med_km": 9.800541304344486,
+      "n_valid": 2
+    },
+    "Guatemala": {
+      "probe_med_km": 179.86453338149016,
+      "baseline_med_km": 43.60960125901414,
+      "n_valid": 10
+    },
+    "Tanzania": {
+      "probe_med_km": 481.2833075397739,
+      "baseline_med_km": 341.6154656620125,
+      "n_valid": 9
+    },
+    "Mexico": {
+      "probe_med_km": 593.4258498093604,
+      "baseline_med_km": 452.6063319262074,
+      "n_valid": 12
+    },
+    "Cameroon": {
+      "probe_med_km": 317.55329965141203,
+      "baseline_med_km": 175.49130309150144,
+      "n_valid": 11
+    },
+    "Kuwait": {
+      "probe_med_km": 169.24599628733708,
+      "baseline_med_km": 23.545704969165037,
+      "n_valid": 5
+    },
+    "Armenia": {
+      "probe_med_km": 191.06528383804743,
+      "baseline_med_km": 44.96712072329192,
+      "n_valid": 8
+    },
+    "Rwanda": {
+      "probe_med_km": 212.53439556543952,
+      "baseline_med_km": 56.936862134104615,
+      "n_valid": 4
+    },
+    "United Arab Emirates": {
+      "probe_med_km": 287.0130128053747,
+      "baseline_med_km": 130.78185506450836,
+      "n_valid": 2
+    },
+    "Haiti": {
+      "probe_med_km": 258.6285126755032,
+      "baseline_med_km": 100.2225766628068,
+      "n_valid": 10
+    },
+    "Nicaragua": {
+      "probe_med_km": 272.4339490348568,
+      "baseline_med_km": 109.72763900907817,
+      "n_valid": 17
+    },
+    "Yemen": {
+      "probe_med_km": 348.2162361461547,
+      "baseline_med_km": 183.47899967816346,
+      "n_valid": 6
+    },
+    "Thailand": {
+      "probe_med_km": 517.8994380442687,
+      "baseline_med_km": 351.4112201626735,
+      "n_valid": 10
+    },
+    "Papua New Guinea": {
+      "probe_med_km": 508.1842050804405,
+      "baseline_med_km": 341.5659505939609,
+      "n_valid": 8
+    },
+    "Malawi": {
+      "probe_med_km": 267.88831617303475,
+      "baseline_med_km": 90.8966132316401,
+      "n_valid": 9
+    },
+    "Costa Rica": {
+      "probe_med_km": 198.98121689589567,
+      "baseline_med_km": 17.044265521218477,
+      "n_valid": 12
+    },
+    "Uruguay": {
+      "probe_med_km": 312.34386324291535,
+      "baseline_med_km": 126.54353006183005,
+      "n_valid": 11
+    },
+    "Benin": {
+      "probe_med_km": 466.1422202243821,
+      "baseline_med_km": 278.6301447526496,
+      "n_valid": 5
+    },
+    "Cambodia": {
+      "probe_med_km": 368.93238491436006,
+      "baseline_med_km": 181.27437233709725,
+      "n_valid": 2
+    },
+    "Bhutan": {
+      "probe_med_km": 289.0093246472937,
+      "baseline_med_km": 97.70547508698374,
+      "n_valid": 2
+    },
+    "Bahrain": {
+      "probe_med_km": 204.22150583835233,
+      "baseline_med_km": 7.649328435916783,
+      "n_valid": 3
+    },
+    "Mauritius": {
+      "probe_med_km": 213.73438718596555,
+      "baseline_med_km": 17.10015882956778,
+      "n_valid": 9
+    },
+    "Jamaica": {
+      "probe_med_km": 280.4783879817425,
+      "baseline_med_km": 53.24867026847532,
+      "n_valid": 16
+    },
+    "Chile": {
+      "probe_med_km": 631.8305636907842,
+      "baseline_med_km": 392.73293838356835,
+      "n_valid": 9
+    },
+    "Andorra": {
+      "probe_med_km": 290.9098527240045,
+      "baseline_med_km": 5.3152528099379035,
+      "n_valid": 2
+    },
+    "Mauritania": {
+      "probe_med_km": 659.5947289709945,
+      "baseline_med_km": 369.4250465226891,
+      "n_valid": 3
+    },
+    "Philippines": {
+      "probe_med_km": 671.5109239477142,
+      "baseline_med_km": 357.8610563779884,
+      "n_valid": 13
+    },
+    "China": {
+      "probe_med_km": 1514.203015536293,
+      "baseline_med_km": 1142.5120760951752,
+      "n_valid": 5
+    }
+  }
+}

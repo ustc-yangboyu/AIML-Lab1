@@ -1,0 +1,307 @@
+\documentclass[UTF8,11pt,a4paper]{article}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\usepackage[font=small,labelfont=bf]{caption}
+\usepackage[margin=2.4cm]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{indentfirst}
+\usepackage{listings}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{graphicx}
+\usepackage{xcolor}
+\usepackage{float}
+\usepackage{xeCJK}
+
+\graphicspath{{./figures/}}
+
+\lstset{
+  basicstyle=\ttfamily\footnotesize,
+  breaklines=true,
+  frame=single,
+  framerule=0.3pt,
+  columns=flexible,
+}
+
+\title{\textbf{实验一报告：使用线性模型探究 LLM 的内部表征}}
+\author{PB25000215 杨博宇}
+\date{2026 年 10 月 20 日}
+\setlength{\parskip}{8pt}
+
+\begin{document}
+\maketitle
+
+\section{Abstract}
+
+本实验用线性探针探测 Qwen3-4B-Base 的内部表征：world 任务预测地点坐标，truth 任务判断句子真假。本报告回答实验一的全部九道思考题，并给出这两个探测任务的最终提交配置。2.1 节手写实现的线性回归与逻辑回归位于 \texttt{src/models.py} 的 \texttt{LinearRegression} 与 \texttt{LogisticRegression} 两个类，以梯度下降求解并含 $\ell_1$ 与 $\ell_2$ 正则化。各思考题脚本为 \texttt{scripts/Q1.py} 至 \texttt{scripts/Q9.py}，数据加载与评估工具在 \texttt{src/datasets.py} 与 \texttt{src/utils.py}。2.2 与 2.3 的提交权重按题目说明由 scikit-learn 的封装类训练得到，具体内容见附录~\ref{app:conv}。
+
+两个任务的最终提交配置与验证集表现汇总于表~\ref{tab:final}。world 任务的训练数据包含自建的增广训练集，构造过程与作用见第~\ref{sec:extra} 节。
+
+\begin{table}[H]
+\centering
+\caption{最终提交配置与验证集表现}
+\label{tab:final}
+\begin{tabular}{lll}
+\toprule
+ & world（坐标回归） & truth（真假分类） \\
+\midrule
+特征层 & 第 1 层 & 第 19 层 \\
+训练数据 & 增广版（5647 训练样本） & 原始训练集（5088 训练样本） \\
+模型 & 多输出 Ridge & 逻辑回归 + 阈值平移 \\
+正则化 & $\lambda_2 = 4.33\times10^{-3}$ & $C = 6.8\times10^{-4}$，课程口径 $\lambda_2 \approx 0.144$ \\
+验证集表现 & 中位误差 275.3 km & 准确率 89.0\%，AUC 0.959 \\
+提交文件 & \texttt{world.npz}：$(2,2560)+(2,)$ & \texttt{truth.npz}：$(2560,)+()$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\section{Question 1：\texorpdfstring{$\ell_1$}{L1} 与 \texorpdfstring{$\ell_2$}{L2} 正则化的系数路径}
+
+\textbf{数据来源。}使用 scikit-learn 自带的糖尿病数据集，442 个样本、10 个特征，目标为一维连续量。
+
+\textbf{做法。}对 $\ell_1$ 与 $\ell_2$ 分别让正则化强度在 $[0,1]$ 上线性取 25 个值，每个值用 2.1 节的手写线性回归（learning rate 0.05，2000 step 梯度下降）训练。记录 10 个系数随正则化强度的变化轨迹，结果见图~\ref{fig:q1}。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{Q1_coefficient_paths_L1.png}
+\includegraphics[width=0.48\textwidth]{Q1_coefficient_paths_L2.png}
+\caption{糖尿病数据集上的系数路径。左：$\ell_1$；右：$\ell_2$。每条曲线为一个特征的系数。}
+\label{fig:q1}
+\end{figure}
+
+\textbf{观察与解释。}$\ell_1$ 的路径呈折线形态：系数较大的特征（bmi、s5、bp）随 $\lambda_1$ 增大只缓慢收缩，而弱特征与冗余特征迅速塌缩，快速地收缩到 0，其余特征仍保有主要系数，归零的现象有先后次序。而 $\ell_2$ 没有归零现象，系数路径更平滑：所有系数同步且成比例减小，最大系数从 33.4 降到 14.6，但系数均没有出现归零。\textbf{原因：}$\ell_1$ 的次梯度 $\lambda_1\operatorname{sgn}(w_j)$ 与 $w_j$ 大小无关。较小的参数会近似均匀地下降到 0。$\ell_2$ 的梯度 $2\lambda_2 w_j$ 随 $w_j$ 变小而等比例变小，越接近零正则化项的梯度越小，且最终无法到达零。\textbf{补充一点：}实验要求中的 $\ell_1$ 梯度求解并没有引入次梯度项，这导致系数绝对值在 $ LR \times \lambda_1 $ 内更新时因为固定步长的正则化梯度发生震荡，无法精确收敛到 0。这会导致在 $\lambda_1$ 较大的时候无法完全复现课件中的正则化系数路径。失败的具体情况见图片图~\ref{fig:q1_failed}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{Q1_coefficient_paths_L1_failed.png}
+\caption{不使用近端梯度的失败情况}
+\label{fig:q1_failed}
+\end{figure}
+
+\section{Question 2：\texorpdfstring{$\ell_2$}{L2} 将小系数置零做特征选择是不好的}
+
+\textbf{案例构造。}仍用糖尿病数据集，将其中两个系数较大的特征（BMI 与血清 s5）各复制三份，复制时叠加标准差 0.01 的高斯噪声，得到 16 维特征。这样每个"信息通道"有 3 个高度相关的冗余特征。按 8:2 划分训练与测试集，分别以 $\lambda_1=1$ 的 $\ell_1$ 正则和 $\lambda_2=1$ 的 $\ell_2$ 正则训练手写线性回归。
+
+\textbf{现象。}训练完成后两组权重画在图~\ref{fig:q2w} 中。$\ell_1$ 的解把每个信息通道的权重集中到少数几个大系数上：BMI 通道的两个主要系数约 11.4 与 10.9，第三个副本只剩 0.96；s5 通道约 15.9 与 8.5。另有 6 个系数被压到 0.1 以内的近零水平，弱相关特征与多余副本基本被清除。在 $\ell_2$ 的解中，同一通道的权重近乎均摊：BMI 的三个复制特征各得约 5.5--5.9，s5 的三个副本同样各得约 5.5。而弱特征（age、s1、s2）系数只有 1.1--1.4，全部 16 个系数都非零。
+
+\textbf{置零实验。}把 $\ell_2$ 解中绝对值小于 $\varepsilon=4.0$ 的系数强行置零，被清除的 age、s1、s2 都是携带真实弱信息的特征，测试 MSE 从 2884.8 恶化到 2998.8。对 $\ell_1$ 的解做同样操作，清掉的只是 0.1 以内的近零残差，测试 MSE 反而从 2891.5 微降到 2878.6。图~\ref{fig:q2c} 的阈值超参扫描中，$\varepsilon$ 升到 6 附近时，$\ell_2$ 解的三个 BMI 副本与三个 s5 副本（系数都集中在 5.5 上下）被整组清除，两个强特征同时消失，测试 MSE 从 2884.8 翻倍到 5675.9。再往上连血压特征（8.3）也被误删，达到 6090。而 $\ell_1$ 的解因为权重集中在 11--17 的大系数上，与被清除的小系数之间隔着一个量级的空档，测试 MSE 直到 $\varepsilon\approx 10.5$ 之前都稳在 2990 以下。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Q2_weights_comparison.png}
+\caption{$\ell_1$ 与 $\ell_2$ 解的权重对比，以及各自被置零后的展示。}
+\label{fig:q2w}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.55\textwidth]{Q2_clip_test_loss.png}
+\caption{置零阈值 $\varepsilon$ 扫描下的测试 MSE。}
+\label{fig:q2c}
+\end{figure}
+
+\textbf{结论。}权重均摊之后，$\ell_2$ 的结果中，冗余副本的系数与弱真实特征、次强特征的系数挤在同一量级，任何置零阈值都无法只清除噪声而不去除信息。小系数携带的是被分散的真实信息而非无用权重。特征选择适合$\ell_1$这类天然具有稀疏性的正则化，因为它自动把权重集中到少数大系数上、把弱相关特征压到近零，大系数与近零系数之间由此留出清晰的间隔。"按大小筛系数"只有在这样的间隔下才是安全的。
+
+\section{Question 3：与 scikit-learn 实现的拟合效果差异}
+
+在糖尿病数据集 8:2 划分上，对 $\lambda_1\in[0.01,10]$、$\lambda_2\in[0.01,1]$ 各取 25 个值，逐点比较手写实现（学习率 0.05、2000 步、近端式 $\ell_1$ 处理）与 scikit-learn 的 \texttt{Lasso}、\texttt{Ridge} 在同一测试集上的 MSE。结果见图~\ref{fig:q3}。为使两者可比，scikit-learn 封装打开了标准化开关，与手写实现内部对特征的标准化对齐。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.48\textwidth]{Q3_comparison_l1.png}
+\includegraphics[width=0.48\textwidth]{Q3_comparison_l2.png}
+\caption{手写实现与 scikit-learn 在测试 MSE 上的逐点对比。左：$\ell_1$；右：$\ell_2$。}
+\label{fig:q3}
+\end{figure}
+
+$\ell_2$ 一侧两条曲线在图上重合：目标函数光滑且下凸，梯度下降在 2000 步内已收敛，与 scikit-learn 的精确解没有可见差别。$\ell_1$ 上正则，手写解略优于 scikit-learn，但基本相同为。两者求解的仍是同一个目标，拟合效果没有本质差异。基于这一结论，后续 2.2、2.3 的正式实验全部使用 scikit-learn 的确定性求解器。
+
+\section{Question 4：不同层中间表征的预测效果与选层}
+
+\textbf{协议。}对 0 到 35 全部 36 层、原始版（base，500 训练样本）与增广版（extra，5647 训练样本）两组特征，逐层拟合多输出 Ridge 并在验证集上报告中位 Haversine 误差。正则化强度固定为 $\lambda_2=4.33\times10^{-3}$，即第~\ref{sec:q5} 节按训练集交叉验证选出的值；层间排序对该值不敏感，换用相邻量级的 $\lambda_2$ 不改变下述结论。代表层的结果见表~\ref{tab:q4}，完整 36 层曲线见图~\ref{fig:q4}。
+
+\begin{table}[H]
+\centering
+\caption{world 探针各层验证集中位误差（km）}
+\label{tab:q4}
+\begin{tabular}{lccccccccc}
+\toprule
+层 & 0 & 1 & 2 & 3 & 11 & 19 & 23 & 29 & 35 \\
+\midrule
+原始版（500 样本） & 824 & 870 & 1026 & 1106 & 1160 & 1390 & 1636 & 1398 & 1508 \\
+增广版（5647 样本） & 276 & 275 & 297 & 305 & 401 & 500 & 502 & 522 & 681 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Q4_layer_sweep.png}
+\caption{36 层扫描：左为中位 Haversine 误差，右为纬度、经度 MSE 之和。}
+\label{fig:q4}
+\end{figure}
+
+\textbf{结果：}两个版本得出的结论基本一致，最开始第 0--3 层最好，中段第 15--29 层最差，最深层有所回升但仍不如浅层。增广训练集使全部 36 层的误差一致下降，原始版最优为第 0 层的 823.8 km，增广版最优为第 1 层的 275.3 km，相对下降 66\%。
+
+\textbf{原因分析：}本题按题目要求探测国名 token 在固定问句模板下的表征，得到的结论是越浅层的效果的表征预测效果越好，而文献~[2] 却表明知识性的表征在较浅的部分中，随着层数的增加，预测效果越好。本次实验和原始论文的最大的差异在于基座模型的不同， ~[2] 中的论文选用的是 Llama-2 系列模型，而本实验使用的 Qwen3-4B-Base 模型。而根据 Llama2 和 Qwen3 的技术报告 ~[4, 5] Llama2 的所有模型都是直接进行预训练的，而 Qwen3-4B-Base 是使用更大规模模型蒸馏得到的，在蒸馏时，主要采用的语料为数学、代码、逻辑推理和通用STEM问题，地理坐标等问题被弱化，因此在模型权重中的相关知识较少，同时，Qwen3-4B-Base 的训练还采用了 On-Policy Distillation，这样类似 RL 的技术手段会破坏模型本身的知识。
+
+\textbf{选层：}最终提交采用 Q4 全层扫描中验证集最优的增广版第 1 层。
+
+\section{Question 5：world 任务的正则化选择}
+\label{sec:q5}
+
+\textbf{搜索空间与依据：}在增广版第 1 层上，对 Ridge 的 $\lambda_2$ 在 $[10^{-4},10^{2}]$、Lasso 的 $\lambda_1$ 在 $[10^{-4},10^{-1}]$ 各对数均匀取 12 点。两类正则在同一折划分下做 5 折交叉验证，以折外预测的中位 Haversine 误差为选择依据。
+
+\textbf{实现：}拟合直接在原始特征空间进行（不做标准化），这样 scikit-learn 返回的 \texttt{coef\_} 与 \texttt{intercept\_} 就是提交格式的权重与偏置，不存在标准化系数折回原始空间的问题。表征分量的方差约 0.07，等效于把正则化网格相对标准化口径整体左移约十五倍，上述网格范围正是按此换算覆盖了有效区间。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\textwidth]{Q5_lambda_sweep.png}
+\caption{Ridge 与 Lasso 的 $\lambda$ 搜索：交叉验证曲线与验证集参考曲线，星标为按交叉验证选定的点。}
+\label{fig:q5}
+\end{figure}
+
+\textbf{结果与理由。}交叉验证选出 Ridge，$\lambda_2^{*}=4.33\times10^{-3}$，折外中位误差 279.4 km，对应验证集 275.3 km。Lasso 最优 $\lambda_1^{*}=0.0152$，折外 312.7 km，验证集 306.2 km，此时非零系数仅 574 个（5120 个中）。选择 Ridge 的理由是：坐标信息在 2560 维表征中的分布弱而稠密，分量之间又相互关联，大量小幅系数共同承载方向信息，Lasso 的硬稀疏会把其中多数强行置零，损失大于噪声收益。增广后样本数已超过特征维度，最优正则化强度变小，稀疏偏置得不偿失。交叉验证曲线上 Lasso 在其整个网格内都无法超过 Ridge 的最优点。最终用全部训练数据重拟合该 Ridge 解，作为提交权重。
+
+\section{Question 6：验证集预测结果与可视化}
+
+图~\ref{fig:q6} 把 1468 个验证点的真实坐标与模型预测画在世界地图上，灰线连接同一地点的真值与预测。底图使用公有领域的 Natural Earth 110m 陆地数据，只绘制陆地轮廓、不含任何国界线。验证集中位误差 275.3 km，平均误差 435.1 km，误差小于 500 km 的点占 74.7\%。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{Q6_world_map.png}
+\caption{world 探针在验证集上的预测与真值。}
+\label{fig:q6}
+\end{figure}
+
+\section{Question 7：坐标表征还是仅仅识别了国家}
+
+\textbf{基线：}按训练集国家分组取平均坐标，对验证集中每个地点用其国家的训练集平均坐标作为预测。这个基线只利用国家身份，不含任何国内地理结构；探针若优于它，说明表征中含有超出国家身份的国内位置信息。
+
+\textbf{总体结果：}探针中位误差 275.3 km，基线 192.7 km，基线在总体上更好。逐国比较中（验证集内样本数不少于 2 且训练集出现过的共 147 个国家），探针在 30 个国家上胜出。胜出的集中在两类国家：幅员辽阔的俄罗斯、加拿大、澳大利亚、哈萨克斯坦、土耳其，以及领土跨越多个岛屿的斐济、马来西亚。小国国土范围与基线误差同量级，几乎不可能胜过基线。图~\ref{fig:q7s} 展示美国、中国、澳大利亚、印度四国的真值、探针预测与国家均值基线：探针的预测点随真实经纬度在国土范围内摊开，而基线收缩为单个点。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{Q7_within_country_scatter.png}
+\caption{四个大国的国内预测：绿色为真值，红色叉为探针预测，橙色星为国家均值基线。}
+\label{fig:q7s}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{Q7_country_baseline.png}
+\caption{各国验证集中位误差：探针与国家均值基线对比。}
+\label{fig:q7b}
+\end{figure}
+
+\textbf{国内相关性：}探针在这些国家的胜出若来自国内位置信息，同一国家内的预测就应随真实坐标变化。对验证集内样本数不少于 4 的国家，计算真值与预测在纬度、经度上的相关系数：经度相关为正的国家有 68/134 个，纬度相关为正的有 70/134 个。最强的几例：卢旺达经度 +0.99、朝鲜 +0.85、蒙古 +0.72、奥地利 +0.69；纬度一侧为伊拉克 +0.69、科特迪瓦 +0.66、墨西哥 +0.63。
+
+\textbf{回答：}仅凭训练集与验证集的表现，不能强烈断言模型内部存在地理坐标的表征。总体中位误差劣于国家均值基线：对领土紧凑的国家，只要训练集覆盖过该国，国家均值本身就近乎最优的预测，而探针的国内回归噪声此时反而成为主要误差来源。验证集里多数样本属于这类国家，基线的中位优势主要由它们贡献。探针输入是国名 token 的表征，浅层探针可能主要利用了国家身份而非坐标结构；探测法本身还有"可解码不等于被使用"的固有局限。但国内相关性显示同一国家内预测随真实经纬度系统性变化，大国内探针优于基线，说明表征中编码了国家身份之外的子国家地理结构，且这一结构可线性读出。结合文献~[2] 通过干预实验给出的更强证据，结论是：模型蕴含可线性解码的地理信息，其中除国家身份外还包含国内相对位置。但仅靠本实验的回归不足以"强烈"证明坐标表征的存在。
+
+\section{Question 8：truth 训练集与验证集的分布差异及应对}
+\label{sec:q8}
+
+\textbf{差异的检验：}直接比较两个集合的句子内容难以得到可量化的结论，我们改在表征空间检验。把第 19 层的训练集与验证集表征混合，标注"来自哪个集合"，训练一个域逻辑回归来区分两者。若两个集合同分布，任何线性分类器都只能达到 0.5 的 AUC。为避免高维容量带来的虚高，分类器在 80\% 混合样本上以 5 折交叉验证选正则化强度，再在从未参与的 20\% 留出上评估。
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Q8_domain_shift.png}
+\caption{域分类器留出集结果：横轴为域判别分数，纵轴为拟合集第一主成分。}
+\label{fig:q8}
+\end{figure}
+
+交叉验证 AUC 为 0.715，留出 AUC 0.784，平衡准确率 0.686；域判别分数的均值在训练集一侧为 $-1.36$、验证集一侧为 $-0.02$。留出 AUC 0.78 高于 0.5，两个集合的表征存在系统性的分布差异。训练集整体沿域方向偏离验证集，根据具体内容，最可能的原因是两组句子覆盖的事实主题与句式来源不同。但同一 AUC 也远低于 1，两个集合仍有大量重叠，分布差异是局部的而非整体割裂。域分数均值的偏移也提示两个集合上逻辑回归的决策分数整体平移，这一点直接影响阈值的选择。
+
+差异集中在特征分布而非标签分布：两个集合的真假标签各占一半，没有类别失衡问题。
+
+\textbf{应对措施：}使用经典的k折交叉验证 + 分类阈值的偏移计算纠正协变量偏移：特征层与正则化强度全部由训练集 5 折交叉验证选择，并对在测试时的每一个训练样本标注在测试时的分数，最后选择让分类正确率最高的分数作为偏移加到偏置项中。但是这个方法无法对本身的标签偏移有效果，如果想进一步优化，必须增广数据集。
+
+\section{Question 9：truth 任务的选层与正则化选择}
+
+\textbf{方法：}对全部 36 层，每层在训练集上做 5 折分层交叉验证，正则化候选为对数均匀的 7 个 $C$（$10^{-4}$ 到 $10^{1}$）。逐层完成后取交叉验证准确率最高的层与该层的最优 $C$。代表层结果见表~\ref{tab:q9}。
+
+\begin{table}[H]
+\centering
+\caption{truth 探针代表层的 5 折交叉验证准确率与最优 $C$}
+\label{tab:q9}
+\begin{tabular}{lccccccccc}
+\toprule
+层 & 0 & 4 & 8 & 12 & 16 & 19 & 23 & 27 & 31 \\
+\midrule
+交叉验证准确率 & 0.604 & 0.644 & 0.686 & 0.742 & 0.852 & 0.881 & 0.868 & 0.850 & 0.832 \\
+最优 $C$ & \multicolumn{8}{c}{$6.8\times10^{-4}$（第 27 层为 $4.6\times10^{-3}$）} & $6.8\times10^{-4}$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.6\textwidth]{Q9_layer_sweep.png}
+\caption{36层表征扫描和正则化系数超参搜索}
+\label{fig:q9}
+\end{figure}
+
+\textbf{结果：}第 19 层最优，交叉验证准确率 0.881，$C^{*}=6.8\times10^{-4}$。在最优层上以全部训练数据重拟合，权重经换算折回原始特征空间，偏置使用第~\ref{sec:q8} 节的阈值平移后存为提交文件。训练集准确率 91.3\%，验证集准确率 89.0\%，AUC 0.959。
+
+\textbf{理由：}层与 world 任务不同：真假信息在中间层最可线性解码，浅层偏重词法与句法特征，对事实真伪区分度低。接近输出的层虽然任务相关性最强，但表征已向 token 预测对齐，压缩了真假方向之外的判别信息，交叉验证准确率随层深下降。这与文献~[3] 报告的真值信息在模型中层形成稳定线性结构的结论一致。正则化一侧，交叉验证选出网格中的 $C=6.8\times10^{-4}$，按附录~\ref{app:conv} 换算即课程口径 $\lambda_2\approx 0.144$，属于较强正则。5088 个样本对 2560 维仅约两倍冗余，且第~\ref{sec:q8} 节已显示训练集与验证集存在分布差异，较强的正则压低了对训练集特有方向的依赖。
+
+\section{附加内容：world 训练集增广}
+\label{sec:extra}
+
+原始 world 训练集仅 500 个样本，不足特征维度 2560 的五分之一，任何层的探针都欠定。我们从公开的城市地理数据库构建了增广训练集：解析其 SQL 导出文件得到 6485 个城市、覆盖 155 个国家，为控制长尾国家的影响，限制每国至多 50 城、美国至多 300 城。与原始数据集的地名去重后按原始集 500:130 的比例、固定随机种子划分为 5147 与 1338 两部分，再与原始训练集、验证集分别合并。最终训练集 5647 个样本、验证集 1468 个样本，覆盖 175 个国家。两套集合的地名零重叠，唯一的坐标同点对不同名实体均保留。
+
+全部 36 层表征在集群上以 \texttt{output\_hidden\_states} 加恒等化 final norm 的方式批量抽取，与逐层 hook 版本逐位一致。与助教提供的 11/23/35 层参照文件的最小余弦相似度不低于 0.995，确认抽取协议对齐。
+
+增广使全部 36 层的中位误差下降，最优配置从 823.8 km 降到 275.3 km，相对下降 66\%，浅层表征依然最优。增广同时扩充了验证集，为排除"验证集恰好变容易"的解释，我们把两个模型放到完全未变的原始 130 点验证集上对比。两者同样以第 1 层特征、同样的 $\lambda_2$ 训练，只用原始 500 样本时中位误差 870.3 km，改用增广后的 5647 样本降到 470.3 km。验证集未变而误差几乎减半，说明改善主要来自训练信息量的增加，而非验证集分布的巧合变化。
+
+\section{总结}
+
+本实验用两类线性探针检验了 Qwen3-4B-Base 的内部表征。world 任务上浅层表征最有利于坐标解码，与文献的中后层最优结论相反，差异主要来自m本身的差异。truth 任务的真假信息则在中间层最可线性解码，与文献一致。正则化方面，稠密弱信息的回归任务更适合 Ridge，稀疏选择在表征解码中没有收益；分布偏移的检验与阈值校准对分类任务的泛化有帮助。数据增广是本实验中收益最大的一项工程投入，它把原本数据不足的问题变成了适度正则即可解的问题。
+
+这些结论的证据止于线性可解码性。思考题七的分析显示，仅凭线性探针不足以"强烈"确立坐标表征的存在：可解码不等于被使用，确认需要文献~[2] 式的干预实验。在 truth 任务上，训练集与验证集存在分布差异（第~\ref{sec:q8} 节），提交配置的自由度虽已全部在训练集内校准，未公开测试集上的表现无法预先验证。所有结论均可在仓库中复现，见附录~\ref{app:repro}。
+
+\appendix
+
+\section{复现方式}
+\label{app:repro}
+
+环境由 uv 管理，依赖见 \texttt{pyproject.toml}。全部结果在集群 Students 分区提交：
+\begin{lstlisting}
+sbatch slurm/run_all.sbatch   # 依次运行 Q4 Q5 Q9 Q8 Q6 Q7
+\end{lstlisting}
+思考题 1--3 为轻量 CPU 任务，在仓库根目录直接运行：
+\begin{lstlisting}
+.venv/bin/python scripts/Q1.py   # Q2、Q3 同理
+\end{lstlisting}
+增广数据集由 \texttt{scripts/build\_extra\_world.py} 重建，全层表征抽取的入口是 \texttt{scripts/extract\_all\_layers.py}。所有脚本须在仓库根目录运行，相对路径以此为基准。
+
+\section{正则化系数换算}
+\label{app:conv}
+
+实验要求的损失为平均经验损失加 $\lambda_1\|w\|_1+\lambda_2\|w\|_2^2$，scikit-learn 的参数与之的换算为：Ridge 的 $\alpha=n\lambda_2$，Lasso 的 $\alpha=\lambda_1/2$，逻辑回归的 $C=1/(2\lambda_2 n)$，其中 $n$ 为训练样本数。scikit-learn 封装类 \texttt{Sklearn\_Ridge}、\texttt{Sklearn\_Lasso}、\texttt{Sklearn\_Logistic} 在 \texttt{src/models.py} 中按此计算。
+
+\section{提交文件自检}
+\label{app:check}
+
+两个提交文件加载与形状检查通过：
+\begin{lstlisting}
+>>> import numpy as np
+>>> w = np.load('outputs/results/world.npz')
+>>> w['weights'].shape, w['weights'].dtype, w['bias'].shape
+((2, 2560), dtype('float64'), (2,))
+>>> t = np.load('outputs/results/truth.npz')
+>>> t['weights'].shape, t['weights'].dtype, t['bias'].shape, t['bias'].dtype
+((2560,), dtype('float64'), (), dtype('float64'))
+\end{lstlisting}
+两者均为有限值，无 NaN 与 Inf，形状与 dtype 满足提交要求。
+
+\begin{thebibliography}{9}
+\bibitem{alain2017} G.~Alain, Y.~Bengio. Understanding intermediate layers using linear classifier probes. arXiv:1610.01644, 2017.
+\bibitem{gurnee2024} W.~Gurnee, M.~Tegmark. Language models represent space and time. ICLR 2024, arXiv:2310.02207.
+\bibitem{marks2024} S.~Marks, M.~Tegmark. The geometry of truth: Emergent linear structure in large language model representations of true/false datasets. arXiv:2310.06824, 2024.
+\bibitem{touvron2023llama2} Hugo Touvron, Louis Martin, Kevin Stone, Peter Albert, Amjad Almahairi, Yasmine Babaei, Nikolay Bashlykov, Soumya Batra, Prajjwal Bhargava, Shruti Bhosale, et al. arXiv preprint arXiv:2307.09288, 2023.
+\bibitem{yang2025qwen3}
+An Yang, Anfeng Li, Baosong Yang, Beichen Zhang, Binyuan Hui, Bo Zheng,
+Bowen Yu, Chang Gao, Chengen Huang, Chenxu Lv, et al. arXiv preprint arXiv:2505.09388, 2025.
+\end{thebibliography}
+
+\end{document}

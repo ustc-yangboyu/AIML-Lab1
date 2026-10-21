@@ -1,0 +1,16 @@
+[project]
+name = "aiml-lab1"
+version = "0.1.0"
+description = "AIML Lab1"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "matplotlib>=3.11",
+    "numpy>=2.5",
+    "pandas>=3.0",
+    "pyshp>=3.1",
+    "scikit-learn>=1.9",
+    "torch>=2.14",
+    "tqdm>=4.70",
+    "transformers>=4.51",
+]

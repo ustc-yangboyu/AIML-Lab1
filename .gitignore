@@ -1,0 +1,16 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+.venv
+
+# Model weights (7.6G, download separately)
+Qwen3-4B-Base/
+
+# Processed datasets (generated, ~2.3G)
+data/*/processed/
