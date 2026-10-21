@@ -81,4 +81,4 @@ uv sync   # 创建 .venv 并按 uv.lock 安装依赖
 
 ## 结果
 
-最终各题结论与图表见 `outputs/report/report.pdf`。
+最终各题结论与图表见 `docs/report/report.pdf`。
